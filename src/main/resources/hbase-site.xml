@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://hzayq-hcfgpre0.server.163.org/hbase</value>
+    </property>
+    <property>
+        <name>zookeeper.znode.parent</name>
+        <value>/hbase</value>
+    </property>
+    <property>
+        <name>hbase.table.sanity.checks</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>hzayq-hcfgpre0.server.163.org</value>
+        <!--<value>10.171.160.69</value>-->
+    </property>
+    <property>
+        <name>hbase.zookeeper.property.clientPort</name>
+        <value>2181</value>
+    </property>
+
+    <property>
+        <name>hbase.cluster.distributed</name>
+        <value>true</value>
+    </property>
+
+    <!-- security configuration -->
+    <property>
+        <name>hbase.security.authentication</name>
+        <value>simple</value>
+    </property>
+    <property>
+        <name>hbase.security.authorization</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.superuser</name>
+        <value>urs</value>
+    </property>
+    <property>
+        <name>hbase.security.exec.permission.checks</name>
+        <value>true</value>
+    </property>
+
+    <!-- coprocessor -->
+    <property>
+        <name>hbase.coprocessor.master.classes</name>
+        <value>org.apache.hadoop.hbase.security.access.AccessController</value>
+    </property>
+    <property>
+        <name>hbase.coprocessor.regionserver.classes</name>
+        <value>org.apache.hadoop.hbase.security.access.AccessController</value>
+    </property>
+    <property>
+        <name>hbase.coprocessor.region.classes</name>
+        <value>org.apache.hadoop.hbase.security.access.AccessController,org.apache.hadoop.hbase.security.token.TokenProvider</value>
+    </property>
+
+    <!-- general performance tuning -->
+    <property>
+        <name>zookeeper.session.timeout</name>
+        <value>12000</value>
+    </property>
+    <property>
+        <name>hbase.rpc.timeout</name>
+        <value>3000</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.handler.size</name>
+        <value>50</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.maxlogs</name>
+        <value>128</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.hlog.blocksize</name>
+        <value>536870912</value>
+        <description>512M</description>
+    </property>
+    <property>
+        <name>hbase.hstore.blockingStoreFiles</name>
+        <value>100</value>
+    </property>
+    <property>
+        <name>hbase.hstore.blockingWaitTime</name>
+        <value>3000</value>
+    </property>
+    <property>
+        <name>hbase.hregion.memstore.block.multiplier</name>
+        <value>2</value>
+    </property>
+
+    <!-- split configuration -->
+    <property>
+        <name>hbase.regionserver.region.split.policy</name>
+        <value>org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy</value>
+    </property>
+    <property>
+        <name>hbase.hregion.max.filesize</name>
+        <value>1073741824</value>
+        <description>1G</description>
+    </property>
+    <property>
+        <name>hbase.regionserver.regionSplitLimit</name>
+        <value>150</value>
+    </property>
+
+    <!-- compaction configuration -->
+    <property>
+        <name>hbase.hregion.majorcompaction</name>
+        <value>0</value>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.min</name>
+        <value>10</value>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.max</name>
+        <value>30</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.thread.compaction.large</name>
+        <value>5</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.thread.compaction.small</name>
+        <value>5</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.thread.compaction.throttle</name>
+        <value>1073741824</value>
+        <description>1G</description>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.max.size</name>
+        <value>2147483648</value>
+        <description>2G</description>
+    </property>
+
+    <!-- slow query log -->
+    <property>
+        <name>hbase.ipc.warn.response.time</name>
+        <value>10000</value>
+        <description>10 seconds</description>
+    </property>
+    <property>
+        <name>hbase.ipc.warn.response.size</name>
+        <value>10485760</value>
+        <description>10M</description>
+    </property>
+
+    <!-- originally in core-site.xml -->
+    <property>
+        <name>hadoop.security.authorization</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hadoop.security.authentication</name>
+        <value>simple</value>
+    </property>
+</configuration>

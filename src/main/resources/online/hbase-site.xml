@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>urs-hbase0.dg.163.org,urs-hbase1.dg.163.org,urs-hbase2.dg.163.org</value>
+    </property>
+    <property>
+        <name>zookeeper.znode.parent</name>
+        <value>/hbase-urshz</value>
+    </property>
+
+    <!-- performance tuning -->
+    <property>
+        <name>hbase.rpc.timeout</name>
+        <value>30000</value>
+    </property>
+    <property>
+        <name>hbase.client.write.buffer</name>
+        <value>2097152</value>
+    </property>
+    <property>
+        <name>hbase.client.pause</name>
+        <value>100</value>
+    </property>
+    <property>
+        <name>hbase.client.scanner.caching</name>
+        <value>1000</value>
+    </property>
+    <property>
+        <name>hbase.client.retries.number</name>
+        <value>2</value>
+    </property>
+
+    <!--authorization settings-->
+    <property>
+        <name>hbase.security.authorization</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.kerbros.krb5file</name>
+        <value>/home/urs/config/krb5.conf</value>
+    </property>
+    <property>
+        <name>hbase.kerbros.keytab</name>
+        <value>/home/urs/config/urs.keytab</value>
+    </property>
+    <property>
+        <name>hbase.kerbros.user</name>
+        <value>urs@HADOOP.HZ.NETEASE.COM</value>
+    </property>
+
+</configuration>

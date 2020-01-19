@@ -1,5 +1,6 @@
 package com.test.sink;
 
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,5 +99,12 @@ public class NssDataMO3 implements Serializable, Cloneable {
 //    public void setData(String data) {
 //        this.data = data;
 //    }
+
+    @Override
+    public String toString() {
+//        LOGGER.info("aaa:output:{}",JSON.toJSONString(this));
+        return String.format("aaa:output:%s",JSON.toJSONString(this));
+//        return JSON.toJSONString(this);
+    }
 }
 

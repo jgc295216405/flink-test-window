@@ -1,6 +1,7 @@
 package com.test.function.reduce;
 
 import com.test.sink.NssDataMO3;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.functions.ReduceFunction;
 
 /**
@@ -12,7 +13,9 @@ import org.apache.flink.api.common.functions.ReduceFunction;
 public class KeyReduceFunction2 implements ReduceFunction<NssDataMO3> {
     @Override
     public NssDataMO3 reduce(NssDataMO3 a, NssDataMO3 b) {
-         b.setValue(a.getValue()+b.getValue());
+//        if(!StringUtils.equals(a.getKey(),b.getKey())){
+            b.setValue(a.getValue()+b.getValue());
+//        }
         return b;
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="true">
+
+    <!-- 定义日志的根目录 log.dir是omad传入的启动参数  -->
+    <property name="logPattern"
+              value="%d{yy-MM-dd.HH:mm:ss.SSS} [%-16t] %-5p %-22c{0} %X{ServiceId} - %m%n"></property>
+
+    <appender name="stdoutAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${logPattern}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    <appender name="DEFAULT_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>fink-agg.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>fink-agg.log.%i</FileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>2048MB</maxFileSize>
+        </triggeringPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${logPattern}</pattern>
+        </layout>
+    </appender>
+    <root level="info">
+        <appender-ref ref="stdoutAppender"/>
+        <appender-ref ref="DEFAULT_APPENDER"/>
+    </root>
+</configuration>
